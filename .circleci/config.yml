@@ -1,6 +1,7 @@
 version: 2.1
 
 orbs:
+  # https://circleci.com/orbs/registry/orb/circleci/python
   python: circleci/python@0.2.1
 
 jobs:
