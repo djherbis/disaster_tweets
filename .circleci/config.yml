@@ -24,7 +24,8 @@ jobs:
           command: whisk notebook run notebooks/explore.ipynb
           name: Test Notebook
       - run:
-          command: tox
+          # only 37 is installed
+          command: tox -e py37
           name: Test Package
 
 workflows:
