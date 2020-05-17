@@ -1,0 +1,27 @@
+version: 2.1
+
+orbs:
+  python: circleci/python@0.2.1
+
+jobs:
+  test:
+    executor: python/default
+    steps:
+      - checkout
+      - python/load-cache
+      - python/install-deps
+      - python/save-cache
+      - run: pip install 'whisk==0.1.27'
+      - run: whisk setup
+      - run: echo "source /home/circleci/project/venv/bin/activate" >> $BASH_ENV
+      - run:
+          command: tox -c tox_project.ini
+          name: Test Project
+        - run:
+          command: tox
+          name: Test Package
+
+workflows:
+  main:
+    jobs:
+      - test
