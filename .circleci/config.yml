@@ -17,7 +17,7 @@ jobs:
       - run:
           command: tox -c tox_project.ini
           name: Test Project
-        - run:
+      - run:
           command: tox
           name: Test Package
 
