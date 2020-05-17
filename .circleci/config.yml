@@ -15,7 +15,7 @@ jobs:
       - python/save-cache
       - run: echo "source /home/circleci/project/venv/bin/activate" >> $BASH_ENV
       - run:
-          command: tox -c tox_project.ini
+          command: pytest -s
           name: Test Project
       - run:
           command: tox
