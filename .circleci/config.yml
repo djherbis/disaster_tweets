@@ -10,7 +10,6 @@ jobs:
     steps:
       - checkout
       - python/load-cache
-      # - python/install-deps
       - run: pip install "whisk==0.1.29"
       - run: whisk setup
       - python/save-cache
@@ -24,7 +23,7 @@ jobs:
           command: whisk notebook run notebooks/explore.ipynb
           name: Test Notebook
       - run:
-          # only 37 is installed
+          # only python 3.7 is installed
           command: tox -e py37
           name: Test Package
 
