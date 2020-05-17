@@ -21,11 +21,11 @@ jobs:
           command: pytest -s
           name: Test Project
       - run:
-          command: tox
-          name: Test Package
-      - run:
           command: whisk notebook run notebooks/explore.ipynb
           name: Test Notebook
+      - run:
+          command: tox
+          name: Test Package
 
 workflows:
   main:
