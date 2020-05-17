@@ -10,7 +10,7 @@ jobs:
       - checkout
       - python/load-cache
       # - python/install-deps
-      - run: pip install "whisk==0.1.27"
+      - run: pip install "whisk==0.1.29"
       - run: whisk setup
       - python/save-cache
       - run: echo "source /home/circleci/project/venv/bin/activate" >> $BASH_ENV
