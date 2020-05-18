@@ -27,7 +27,7 @@ jobs:
             - "venv"
             - ".tox"
             # The really slow part is installing the project dependencies but can't figure out how to cache this.
-      - run: echo "source /home/circleci/project/venv/bin/activate" >> $BASH_ENV
+      - run: echo "source /root/project/venv/bin/activate" >> $BASH_ENV
       - run: whisk dvc setup
       - run: dvc pull
       - run:
