@@ -11,6 +11,7 @@ jobs:
     executor: python/default
     steps:
       - run: apt-get -y update
+      # In case build fails and need to SSH and edit files
       - run: apt-get -y install nano
       - checkout
       - restore_cache:  # ensure this step occurs *before* installing dependencies
@@ -40,6 +41,16 @@ jobs:
           # only python 3.7 is installed
           command: tox
           name: Test Package
+      - save_cache:
+          # Don't think .tox will get saved as it hasn't ran yet, but want to cache venv
+          # early as the rest could fail. Save cache 2x?
+          # Had trouble w/the full cache key reaching into the template dir
+          # key: deps-0-{{ .Branch }}-{{ checksum "requirements_dev.txt" }}-{{ checksum "setup.py" }}-{{ checksum "whisk/template/\{\{\ cookiecutter.repo_name\ \}\}/requirements.txt"}}
+          key: deps-0-{{ .Branch }}-{{ checksum "requirements.txt" }}-{{ checksum "setup.py" }}
+          paths:
+            - "venv"
+            - ".tox"
+            # The really slow part is installing the project dependencies but can't figure out how to cache this.
 
 workflows:
   main:
