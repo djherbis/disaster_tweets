@@ -16,7 +16,7 @@ def test_cli():
 def test_predict_via_cli():
     """Test generating a model prediction via the CLI."""
     runner = CliRunner()
-    argument = '[["Theyd probably still show more life than Arsenal did yesterday, eh? EH?"],["Just happened a terrible car crash"]]'
+    argument = "Theyd probably still show more life than Arsenal did yesterday, eh? EH?"
     result = runner.invoke(cli, ['predict',argument])
     assert result.exit_code == 0, "Predict failed with error: "+ result.output
     assert len(result.output) > 0

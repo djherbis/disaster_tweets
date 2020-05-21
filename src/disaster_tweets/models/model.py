@@ -1,9 +1,14 @@
 from disaster_tweets import artifacts_dir
 from tensorflow.keras.models import load_model
-import keras
-from keras.preprocessing.sequence import pad_sequences
-import pickle
 import os
+import pickle
+
+
+# Always outputs "Using TensorFlow backend"
+# https://github.com/keras-team/keras/issues/1406
+from contextlib import redirect_stderr
+with redirect_stderr(open(os.devnull, "w")):
+    from keras.preprocessing.sequence import pad_sequences
 
 # Just disables the warning, doesn't enable AVX/FMA
 # https://stackoverflow.com/questions/47068709/your-cpu-supports-instructions-that-this-tensorflow-binary-was-not-compiled-to-u

@@ -19,7 +19,18 @@ If the source code (``*.py` files) is updated, the app is reloaded automatically
 ```
 curl --location --request POST 'http://localhost:5000/predict' \
 --header 'Content-Type: application/json' \
---data-raw '{"data":["Just happened a terrible car crash"]}'
+--data-raw '{"data":["Just happened a terrible car crash", "Theyd probably still show more life than Arsenal did yesterday, eh? EH?"]}'
+```
+
+```
+[
+  [
+    0.7632551789283752
+  ],
+  [
+    0.162011981010437
+  ]
+]
 ```
 
 

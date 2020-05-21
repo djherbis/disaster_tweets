@@ -54,11 +54,11 @@ See the [quickstart](#quickstart) section for usage info.
 After installing pip or running setup, invoke the model from the command line:
 
 ```
-disaster_tweets predict '["Theyd probably still show more life than Arsenal did yesterday, eh? EH?"]'
-[[0.19104013]]
+disaster_tweets predict "Theyd probably still show more life than Arsenal did yesterday, eh? EH?"
+0.19104013
 
-disaster_tweets predict '["Just happened a terrible car crash"]'
-[[0.658098]]
+disaster_tweets predict "Just happened a terrible car crash"
+0.658098
 ```
 
 ### DVC stages
