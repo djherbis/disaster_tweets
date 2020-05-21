@@ -8,11 +8,11 @@ import os
 app = Flask(__name__)
 model = Model()
 
-@app.route('/', methods=["GET","POST"])
+@app.route('/', methods=["GET"])
 def index():
     result = None
-    if request.method == 'POST':
-        text=request.form['text']
+    text=request.args.get("text",None)
+    if text:
         result = model.predict([text])[0][0]
 
     return render_template('index.html', result=result)
