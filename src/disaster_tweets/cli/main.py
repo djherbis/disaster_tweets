@@ -1,5 +1,4 @@
 import click
-import json
 from disaster_tweets.models.model import Model
 
 @click.group()
@@ -10,12 +9,14 @@ def cli():
 @click.argument('x')
 def predict(x):
     """
-    Generate a model prediction.
-    Example usage: disaster_tweets predict [[1,2],[3,4]]
+    Predict whether a tweet is about a real disaster (or not).
+    Returns a Float between 0-1 (unlikely - likely).
+
+    Example usage:\n
+    disaster_tweets predict "Just happened a terrible car crash"
     """
     model = Model()
-    x_parsed = json.loads(x)
-    res = model.predict(x_parsed)
+    res = model.predict([x])[0][0]
     click.echo(res)
 
 if __name__ == "__main__":
