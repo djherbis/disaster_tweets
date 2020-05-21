@@ -6,6 +6,7 @@
   "context": "..",
   "settings": {
     "terminal.integrated.shell.linux": "/bin/bash",
+    "terminal.integrated.inheritEnv": false,
     "python.pythonPath": "./venv/bin/python"
   },
 }
