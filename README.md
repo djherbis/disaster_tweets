@@ -36,7 +36,7 @@ You can checkout the project source code and run the model, notebooks, Flask app
 
 ### GitHub Codespaces
 
-If you have access to GitHub Codespaces, open this project within Codespaces. See the [devcontainer.json](.devcontainer/devcontainer.json) file for the default workspace configuration.
+The project comes with a [devcontainer.json](.devcontainer/devcontainer.json) file for the default workspace configuration. This runs the project setup commands - no extra configuration is required.
 
 When using the terminal, activate the project venv first:
 

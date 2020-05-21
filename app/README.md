@@ -10,11 +10,14 @@ From the project root:
 whisk app start
 ```
 
-The app is available at http://localhost:5000/.
+The app is available at http://localhost:5000/. It contains two routes:
+
+* http://localhost:5000/ - get predictions via an HTML form.
+* http://localhost:5000/predict - Submit data for predictions via JSON.
 
 If the source code (``*.py` files) is updated, the app is reloaded automatically in development mode.
 
-## Example Usage
+## Example API Usage
 
 ```
 curl --location --request POST 'http://localhost:5000/predict' \
