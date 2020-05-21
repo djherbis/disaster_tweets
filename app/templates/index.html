@@ -1,0 +1,19 @@
+<html>
+  <body>
+    <h1>Real or Not? NLP with Disaster Tweets</h1>
+    <p>
+      Predict whether a tweet is about a real disaster (or not).
+      Returns a Float between 0-1 (unlikely - likely).
+    </p>
+    <form action="/" method="POST">
+      Tweet Text<br/>
+      <input type="text" name="text" style="width: 500px" value="Just happened a terrible car crash" />
+      <input type="submit" value="Real or Not?">
+    </form>
+
+    {% if result %}
+      <h2> Result: {{ result }}</h2>
+
+    {% endif %}
+  </body>
+</html>
