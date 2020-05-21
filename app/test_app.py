@@ -11,6 +11,15 @@ def client():
     with app.test_client() as client:
         yield client
 
+def test_get_index(client):
+    response = client.get('/')
+    assert response.status_code == 200
+
+def test_post_index(client):
+    response = client.post('/',
+                           data={"text": "Just happened a terrible car crash"})
+    assert response.status_code == 200
+
 def test_predict(client):
     # The code below will likely fail when a real model
     # is provided. It should pass on a fresh app.
