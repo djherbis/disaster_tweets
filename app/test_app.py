@@ -15,9 +15,8 @@ def test_get_index(client):
     response = client.get('/')
     assert response.status_code == 200
 
-def test_post_index(client):
-    response = client.post('/',
-                           data={"text": "Just happened a terrible car crash"})
+def test_get_index_with_text(client):
+    response = client.get('/?text="Just happened a terrible car crash"')
     assert response.status_code == 200
 
 def test_predict(client):
