@@ -6,16 +6,14 @@ The project is structured with [whisk](https://github.com/whisk-ml/whisk), an ML
 
 Besides Tensorflow+Keras, the project uses DVC to version control the data download and training stages. As the training stage takes ~20 minutes on a laptop, this can save a significant amount of time when bootstrapping the project.
 
-You can invoke the trained model three different ways:
+## Using the trained model
 
-## (A) Deploy to Heroku as a web service
+You can use the trained model in two different ways:
 
-Click the button below to deploy the Flask web service to Heroku. See [`app/README.md`](app/README.md) for the HTTP API.
+1. [Install the Python Package](#install-the-python-package)
+2. [Deploy to Heroku as a web service](#deploy-to-heroku-as-a-web-service)
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/whisk-ml/disaster_tweets)
-
-
-## (B) Install the Python Package
+### Install the Python Package
 
 Install this model via pip:
 
@@ -23,9 +21,32 @@ Install this model via pip:
 
 See the [quickstart](#quickstart) section for usage info.
 
-## (C) Check out source code
+### Deploy to Heroku as a web service
 
-### Prerequisites
+Click the button below to deploy the Flask web service to Heroku. See [`app/README.md`](app/README.md) for the HTTP API.
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/whisk-ml/disaster_tweets)
+
+## Checking out the project
+
+You can checkout the project source code and run the model, notebooks, Flask app, and more. There are two options:
+
+1. [GitHub Codespaces](#github-codespaces)
+2. [From source code](#from-source-code)
+
+### GitHub Codespaces
+
+If you have access to GitHub Codespaces, open this project within Codespaces. See the [devcontainer.json](.devcontainer/devcontainer.json) file for the default workspace configuration.
+
+When using the terminal, activate the project venv first:
+
+    source venv/bin/activate
+
+See the [quickstart](#quickstart) section for usage info.
+
+### From source code
+
+#### Prerequisites
 
 The following is required to run this project:
 
@@ -33,7 +54,7 @@ The following is required to run this project:
 * Python 3.6+
 * A Linux-based OS
 
-### Setup
+#### Setup
 
 After cloning this repo and `cd disaster_tweets` run the following in your terminal:
 
@@ -47,9 +68,7 @@ The commands above install whisk, setup the project environment, activate the cr
 
 See the [quickstart](#quickstart) section for usage info.
 
-## Reference
-
-### Quickstart
+## Quickstart
 
 After installing pip or running setup, invoke the model from the command line:
 
@@ -61,7 +80,17 @@ disaster_tweets predict "Just happened a terrible car crash"
 0.658098
 ```
 
-### DVC stages
+Use within Python:
+
+```py
+from disaster_tweets.models.model import Model
+model = Model()
+model.predict(["Theyd probably still show more life than Arsenal did yesterday, eh? EH?"])
+```
+
+## DVC stages
+
+If you checked out the project source code you can run the DVC stages.
 
 Run the training stage:
 
