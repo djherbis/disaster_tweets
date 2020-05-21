@@ -16,7 +16,7 @@ jobs:
       - checkout
       - restore_cache:  # ensure this step occurs *before* installing dependencies
           key: deps-0-{{ .Branch }}-{{ checksum "requirements.txt" }}-{{ checksum "setup.py" }}
-      - run: pip install "whisk==0.1.29"
+      - run: pip install "whisk==0.1.32"
       - run: whisk setup
       - run: echo "source /root/project/venv/bin/activate" >> $BASH_ENV
       - run: whisk dvc setup

@@ -3,7 +3,7 @@
 -e .
 
 # Adds the whisk cli, directory helpers, etc.
-whisk
+whisk==0.1.32
 
 ### whisk project requirements
 ipykernel # creating the `disaster_tweets` kernel
