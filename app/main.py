@@ -6,9 +6,6 @@ import os
 
 # initialize the Flask application
 app = flask.Flask(__name__)
-# Pull the output of the DVC stage used to generate the serialized model when running on a
-# deployed server. For example:
-# dvc.pull("train.dvc")
 model = Model()
 
 @app.route("/predict", methods=["POST"])
