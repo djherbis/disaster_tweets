@@ -2,6 +2,8 @@
 
 This is an HTTP API skeleton to run model inference. The web app is powered by Flask.
 
+![screen](https://user-images.githubusercontent.com/7880/82588486-19c52800-9b58-11ea-85b4-9f48e141d9ad.png)
+
 ## Running the web app
 
 From the project root:
